@@ -7,7 +7,7 @@
 -- 	- (addCyberware) - Adds all cyberware - NOT WORKING YET. Don't save and load
 -- 	- (addAllItems) - Adds all legendary items
 
--- Copyright (C) 2021-2023 Jon West <electrikjesus@gmail.com>
+-- Copyright (C) 2021-2024 Jon West <electrikjesus@gmail.com>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -81,8 +81,11 @@ function godMode()
 	Game.GetStatsSystem():AddModifier(Game.GetPlayer():GetEntityID(),RPGManager.CreateStatModifier(gamedataStatType.GrenadesMaxCharges,gameStatModifierType.AdditiveMultiplier,100))
 	Game.GetStatsSystem():AddModifier(Game.GetPlayer():GetEntityID(),RPGManager.CreateStatModifier(gamedataStatType.GrenadesRechargeDuration,gameStatModifierType.Multiplier,0.1))
 	Game.GetStatsSystem():AddModifier(Game.GetPlayer():GetEntityID(),RPGManager.CreateStatModifier(gamedataStatType.HousingBuffsDurationBonus,gameStatModifierType.AdditiveMultiplier,100))
+	-- Stamina
+	Game.GetStatsSystem():AddModifier(Game.GetPlayer():GetEntityID(),RPGManager.CreateStatModifier(gamedataStatType.Stamina,gameStatModifierType.Additive,99999999))
+
 	Game.GetPlayer():SetWarningMessage("'I is Stuper-Hero now' toggled")
-	print("Unlimited Money set by keypress")
+	print("Super-Hero Mode set by keypress")
 		
 end
 
@@ -91,6 +94,30 @@ function addMoneys()
 	Game.AddToInventory("Items.money",999999999)
 	Game.GetPlayer():SetWarningMessage("'I can has moneys' toggled")
 	print("Unlimited Money set by keypress")
+end
+
+function enableHackerman()
+	--Solo Skill
+	Game.AddToInventory("Items.BodySkill_Skillbook")
+	Game.AddToInventory("Items.BodySkill_Skillbook_Legendary")
+	--HeadHunter Skill
+	Game.AddToInventory("Items.CoolSkill_Skillbook")
+	Game.AddToInventory("Items.CoolSkill_Skillbook_Legendary")
+	--Netrunner Skill	
+	Game.AddToInventory("Items.IntelligenceSkill_Skillbook")	
+	Game.AddToInventory("Items.IntelligenceSkill_Skillbook_Legendary")	
+	--Shinobi Skill	
+	Game.AddToInventory("Items.ReflexSkillbook_Skillbook")	
+	Game.AddToInventory("Items.ReflexSkillbook_Skillbook_Legendary")	
+	--Engineer Skill	
+	Game.AddToInventory("Items.TechnicalAbilitySkill_Skillbook")	
+	Game.AddToInventory("Items.TechnicalAbilitySkill_Skillbook_Legendary")	
+	--Relic Points	
+	Game.AddToInventory("Items.Espionage_Skillbook")
+	-- Perk Points
+	Game.AddToInventory("Items.PerkPointSkillbook")
+	Game.AddToInventory("Items.AttributePointSkillbook", 1)
+	print("Hackerman set by keypress")
 end
 
 function enableStealth()
@@ -111,3 +138,4 @@ end
 registerHotkey("godMode", "godMode", godMode)
 registerHotkey("addMoneys", "addMoneys", addMoneys)
 registerHotkey("enableStealth", "enableStealth", enableStealth)
+registerHotkey("enableHackerman", "enableHackerman", enableHackerman)

@@ -2,9 +2,10 @@
 
 a simple semi god-mode mod for cyberpunk 2077.
 comes with 3 hotkeys. 
- - god mode
+ - Super-Hero Mode (god mode)
  - stealth
  - add money
+ - Hackerman (Add perk points/relic points)
 
 ## Requirements
 
